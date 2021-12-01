@@ -1,1 +1,5 @@
 .vscode/
+[Bb]in/
+[Oo]bj/
+.fake
+.ionide
