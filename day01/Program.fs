@@ -8,8 +8,7 @@ let input =
 // part one
 let numberOfIncreases =
     List.pairwise
-    >> List.map (fun (p, n) -> n - p)
-    >> List.filter (fun x -> x > 0)
+    >> List.filter (fun (p, n) -> n > p)
     >> List.length
 
 let answer1 = numberOfIncreases input
