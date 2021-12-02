@@ -17,7 +17,7 @@ let answer1 =
     commands
     |> List.fold followCommand (0, 0)
     |> (fun (hor, depth) -> hor * depth)
-printfn "Answer part 1: %A" answer1
+printfn "Answer part 1: %i" answer1
 
 // part two
 let followCommandAccordingToManual (hor, depth, aim) (direction, distance) =
@@ -31,4 +31,4 @@ let answer2 =
     commands
     |> List.fold followCommandAccordingToManual (0, 0, 0)
     |> (fun (hor, depth, _) -> hor * depth)
-printfn "Answer part 2: %A" answer2
+printfn "Answer part 2: %i" answer2
