@@ -1,7 +1,5 @@
-﻿open System.IO
-
-let counted =
-    File.ReadAllText("input.txt")
+﻿let counted =
+    System.IO.File.ReadAllText("input.txt")
     |> (fun s -> s.Split(','))
     |> Array.map int
     |> Array.countBy id

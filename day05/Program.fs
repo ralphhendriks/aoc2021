@@ -1,18 +1,14 @@
-﻿open System.IO
-
-let lines =
-    File.ReadAllLines("input.txt")
+﻿let lines =
+    System.IO.File.ReadAllLines("input.txt")
     |> Array.map (fun l ->
         l.Split(" -> ")
-        |> Array.map (fun k ->
-            k.Split(','))
+        |> Array.map (fun k -> k.Split(','))
         |> Array.map (fun a -> (int a[0], int a[1])))
     |> Array.map (fun a -> (a[0], a[1]))
     |> Array.toList
 
 // part one
-let linePointsHorAndVerOnly ((x1, y1), (x2, y2)) =
-    match ((x1, y1), (x2, y2)) with
+let linePointsHorAndVerOnly = function
     | ((x1, y1), (x2, y2)) when x1 = x2 && y1 <= y2 -> [ for y in y1 .. y2 -> (x1, y) ]
     | ((x1, y1), (x2, y2)) when x1 = x2             -> [ for y in y1 .. -1 .. y2 -> (x1, y) ]
     | ((x1, y1), (x2, y2)) when y1 = y2 && x1 <= x2 -> [ for x in x1 .. x2 -> (x, y1) ]
@@ -28,8 +24,7 @@ let answer1 =
 printfn "Answer part 1: %i" answer1
 
 // part two
-let linePointsHorAndVerAndDiag ((x1, y1), (x2, y2)) =
-    match ((x1, y1), (x2, y2)) with
+let linePointsHorAndVerAndDiag = function
     | ((x1, y1), (x2, y2)) when x1 = x2 || y1 = y2 -> linePointsHorAndVerOnly ((x1, y1), (x2, y2))
     | ((x1, y1), (x2, y2)) ->
         let xrange =
